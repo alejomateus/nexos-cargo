@@ -1,0 +1,38 @@
+.info-header {
+    border-bottom: 1px solid var(--color-gray);
+    width        : 100%;
+    padding      : 10px 0;
+    background   : var(--color-gray) url('/assets/imagenes/info-header/info-fondo.png') center top repeat-x;
+
+    .contenido-info-header {
+
+        font-family: OpenSansLight, sans-serif;
+        font-size  : 1rem;
+        color      : var(--color-text);
+        display    : flex;
+
+        .header_mail {
+            float       : right;
+            padding-left: 23px;
+            background  : url('/assets/imagenes/info-header/mail.png') left center no-repeat;
+            margin-right: 20px;
+
+            a {
+                color          : var(--color-text);
+                outline        : 0;
+                text-decoration: none;
+
+                &:hover {
+                    color: var(--color-text-a-hover);
+                }
+            }
+        }
+
+        .header_phone {
+            float       : right;
+            padding-left: 22px;
+            background  : url('/assets/imagenes/info-header/phone.png') left center no-repeat;
+            margin-right: 20px;
+        }
+    }
+}

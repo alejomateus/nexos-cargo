@@ -1,0 +1,26 @@
+.navbar {
+    box-shadow: 0px 1px 2px rgb(0 0 0 / 15%);
+    padding   : 0;
+
+    &-nav {
+        align-items: center;
+    }
+}
+
+.navbar-brand {
+    height: 72px;
+}
+
+.nav-menu-logo {
+    max-height: 100%;
+    width     : auto;
+}
+
+.nav-btn {
+    background-color: #e9c31e;
+    line-height     : 46px !important;
+    border-radius   : 5px;
+    color           : #fff !important;
+    border-bottom   : none !important;
+    padding         : 2px 16px 2px !important;
+}
