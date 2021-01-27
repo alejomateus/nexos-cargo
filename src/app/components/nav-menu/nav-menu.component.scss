@@ -17,10 +17,16 @@
 }
 
 .nav-btn {
-    background-color: #e9c31e;
+    background-color: var(--color-text-a-hover);
     line-height     : 46px !important;
     border-radius   : 5px;
-    color           : #fff !important;
+    color           : var(--color-white) !important;
     border-bottom   : none !important;
     padding         : 2px 16px 2px !important;
+}
+
+.nav-link {
+    font-family   : OpenSansSemiBold, sans-serif;
+    text-transform: uppercase;
+    font-size     : 14px;
 }

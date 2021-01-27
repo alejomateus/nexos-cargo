@@ -1,5 +1,5 @@
 .inicio-banner {
-    padding      : 26px 0 30px;
+    padding      : 35px 0 30px;
     margin-bottom: 50px;
 }
 
@@ -52,6 +52,7 @@
 }
 
 .button-traking {
+    cursor          : pointer;
     text-transform  : uppercase;
     text-decoration : none;
     color           : var(--color-white);
@@ -61,4 +62,44 @@
     padding         : 12px 28px;
     background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.1));
     text-shadow     : 0px 1px 2px rgb(0 0 0 / 20%);
+    transition      : all 0.2s linear;
+
+    &:hover {
+        color           : var(--color-white);
+        background-color: var(--color-text);
+    }
+}
+
+.certificacion {
+    margin        : 6px 0 42px;
+    padding-bottom: 8px;
+    overflow      : hidden;
+
+    h1 {
+        margin        : 52px 0 0;
+        padding-bottom: 16px;
+        font-size     : 50px;
+        line-height   : 64px;
+        color         : #222;
+        text-transform: uppercase;
+        font-family   : OpenSansBold, sans-serif;
+    }
+
+    h2 {
+        margin     : 20px 0 40px;
+        font-family: DroidSerifItalic, arial, sans-serif;
+        font-size  : 24px;
+        line-height: 30px;
+        font-style : italic;
+        font-weight: 300;
+        color      : #888;
+    }
+}
+
+.basc-container {
+    padding-bottom: 50px;
+}
+
+section {
+    background-color: var(--color-white);
 }
