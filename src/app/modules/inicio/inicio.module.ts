@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './inicio.component';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { ServiciosComponent } from './servicios/servicios.component';
 
 @NgModule({
-  declarations: [InicioComponent],
+  declarations: [InicioComponent, ServiciosComponent],
   imports: [CommonModule, InicioRoutingModule, ComponentsModule],
 })
 export class InicioModule {}

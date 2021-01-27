@@ -1,0 +1,39 @@
+.row {
+    margin-bottom: 20px;
+}
+
+.fas {
+    font-size  : 56px;
+    line-height: 108px;
+    color      : var(--color-text-a-hover);
+}
+
+.conten-icon {
+    margin    : 0px auto 24px auto;
+    text-align: center;
+    position  : relative;
+}
+
+h3 {
+    font-size     : 20px;
+    line-height   : 30px;
+    color         : var(--color-text-two);
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    margin-bottom : 20px;
+    position      : relative;
+    margin-top    : 20px;
+    font-family   : OpenSansSemiBold, sans-serif;
+
+    &::after {
+        display         : block;
+        content         : "";
+        width           : 80px;
+        height          : 4px;
+        background-color: var(--color-text-afeter);
+        position        : absolute;
+        bottom          : 0;
+        left            : 50%;
+        margin-left     : -40px;
+    }
+}

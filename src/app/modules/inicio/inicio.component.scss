@@ -1,5 +1,5 @@
 .inicio-banner {
-    padding      : 26px 0 10px;
+    padding      : 26px 0 30px;
     margin-bottom: 50px;
 }
 
@@ -11,6 +11,7 @@
 
 .banner {
     &-title {
+        position           : relative;
         margin             : 52px 0 0;
         padding-bottom     : 16px;
         text-transform     : uppercase;
@@ -19,9 +20,23 @@
         font-weight        : 400;
         font-family        : OpenSansBold, sans-serif;
         line-height        : 64px;
+        font-size          : 48px;
 
         strong {
             color: var(--color-text-a-hover);
+        }
+
+        &::after {
+            display         : block;
+            content         : "";
+            width           : 80px;
+            height          : 4px;
+            background-color: var(--color-text-afeter);
+            background-color: rgba(0, 0, 0, 0.07);
+            position        : absolute;
+            bottom          : 2px;
+            left            : 50%;
+            margin-left     : -40px;
         }
     }
 
@@ -37,6 +52,8 @@
 }
 
 .button-traking {
+    text-transform  : uppercase;
+    text-decoration : none;
     color           : var(--color-white);
     background-color: var(--color-text-a-hover);
     font-family     : OpenSansBold, sans-serif;
