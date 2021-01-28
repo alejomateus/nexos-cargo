@@ -1,0 +1,31 @@
+#footer {
+    height     : 300px;
+    overflow   : auto;
+    background : #222;
+    font-size  : 13px;
+    border-top : 3px solid #ddd;
+    color      : #757d82;
+    padding-top: 32px;
+    position   : fixed;
+    bottom     : 0px;
+    left       : 0px;
+    right      : 0px;
+    z-index    : -1;
+
+    .footer_btm {
+        padding   : 20px 0px 0px;
+        background: #121313;
+        border-top: 1px solid #2a2a2a;
+    }
+}
+
+#powered {
+    float       : left;
+    margin-top  : 1px;
+    margin-right: 10px;
+    color       : #748188;
+}
+
+.row {
+    margin: 0 0 20px 0;
+}
