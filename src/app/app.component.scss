@@ -1,11 +1,38 @@
+@import "media-content";
+
 .menu-fijo {
-    position: fixed;
-    width   : 100%;
-    z-index : 1;
-    top     : 0;
+    position  : fixed;
+    width     : 100%;
+    z-index   : 1;
+    top       : 0;
+    transition: all 1s ease 0s;
+
+    &.classHeader {
+        top: -92px;
+
+        @include media-tablet {
+            top: -44px;
+        }
+
+        @include media-pc {
+            top: -44px;
+        }
+    }
 }
 
 .content {
-    margin-top   : 75px;
-    margin-bottom: 300px;
+    margin-top   : 100px;
+    margin-bottom: 0px;
+
+    &.classHeader {
+        margin-top: 70px;
+    }
+
+    @include media-tablet {
+        margin-bottom: 300px;
+    }
+
+    @include media-pc {
+        margin-bottom: 275px;
+    }
 }
