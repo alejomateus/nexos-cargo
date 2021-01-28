@@ -1,8 +1,8 @@
-<div class="menu-fijo">
+<div class="menu-fijo" [class.classHeader]="classHeader">
     <app-info-header></app-info-header>
     <app-nav-menu></app-nav-menu>
 </div>
-<div class="content">
+<div class="content" [class.classHeader]="classHeader">
     <router-outlet></router-outlet>
 </div>
-<div id="footer"></div>
+<app-footer></app-footer>
