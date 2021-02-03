@@ -30,3 +30,11 @@
     text-transform: uppercase;
     font-size     : 14px;
 }
+
+.nav-item {
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+}

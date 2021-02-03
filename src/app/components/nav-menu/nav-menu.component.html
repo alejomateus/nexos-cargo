@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" routerLink="/inicio">
             <img class="select-icon" src="assets/imagenes/nav-menu/nexos-logo.png" alt="logo nexos"
                 class="nav-menu-logo d-inline-block align-top">
         </a>
@@ -10,11 +10,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio</a>
+                <li class="nav-item" routerLink="/inicio" routerLinkActive="active">
+                    <a class="nav-link">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Servicios</a>
+                <li class="nav-item" routerLink="/servicios" routerLinkActive="active">
+                    <a class="nav-link">Servicios</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Cotizar</a>
