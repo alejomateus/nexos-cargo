@@ -1,0 +1,134 @@
+<section>
+    <div class="contaner-cotizar">
+        <div
+            style="background: url(/assets/imagenes/servicios/fondo.jpeg) 50% 65px / cover no-repeat fixed; padding: 26px 0 10px;">
+            <div class="container">
+                <div class="row">
+                    <div class="section_big_title ">
+                        <h1>Solicitar <strong>cotización</strong></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container contenido ">
+            <div class="col-12 col-md-6 ml-0 ml-md-4">
+                <div class="texto">
+                    Completa la siguiente información para recibir la cotización:
+                </div>
+                <form novalidate [formGroup]="formCotizar" class="login-form" (ngSubmit)="cotizar()" *ngIf="!loader">
+                    <div class="form-group">
+                        <label for="email">Email <span>*</span> </label>
+                        <input (focus)="focusedEmail = true" (blur)="focusedEmail = false" #inputEmail type="email"
+                            class="form-control" autocomplete="off"
+                            [class.error]="!focusedEmail && formCotizar.controls.email.invalid && (formCotizar.controls.email.dirty || formCotizar.controls.email.touched)"
+                            id="email" aria-describedby="emailHelp" formControlName="email"
+                            placeholder="Ingresa el email donde deseas recibir la cotización...">
+                        <div class="error-formulario">
+                            <ng-container *ngFor="let validation of cotizarValidaciones.email">
+                                <span class="error-message"
+                                    *ngIf="!focusedEmail && formCotizar.controls.email.hasError(validation.type) && (formCotizar.controls.email.dirty || formCotizar.controls.email.touched)">
+                                    {{ validation.message }}
+                                </span>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="origen">Origen <span>*</span></label>
+                        <input type="text" class="form-control" id="origen" aria-describedby="emailHelp"
+                            formControlName="origen" placeholder="Ingresa el origen de la mercancía..."
+                            autocomplete="off"
+                            [class.error]="!focusedEmail && formCotizar.controls.origen.invalid && (formCotizar.controls.origen.dirty || formCotizar.controls.origen.touched)">
+                        <div class="error-formulario">
+                            <ng-container *ngFor="let validation of cotizarValidaciones.origen">
+                                <span class="error-message"
+                                    *ngIf="formCotizar.controls.origen.hasError(validation.type) && (formCotizar.controls.origen.dirty || formCotizar.controls.origen.touched)">
+                                    {{ validation.message }}
+                                </span>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="destino">Destino <span>*</span></label>
+                        <input type="text" class="form-control" id="destino" aria-describedby="emailHelp"
+                            formControlName="destino" placeholder="Ingresa el destino de la mercancía...."
+                            autocomplete="off"
+                            [class.error]="!focusedEmail && formCotizar.controls.destino.invalid && (formCotizar.controls.destino.dirty || formCotizar.controls.destino.touched)">
+                        <div class="error-formulario">
+                            <ng-container *ngFor="let validation of cotizarValidaciones.origen">
+                                <span class="error-message"
+                                    *ngIf="formCotizar.controls.destino.hasError(validation.type) && (formCotizar.controls.destino.dirty || formCotizar.controls.destino.touched)">
+                                    {{ validation.message }}
+                                </span>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="volumen">Volumen <span>*</span></label>
+                        <input type="text" class="form-control" id="volumen" aria-describedby="emailHelp"
+                            formControlName="volumen" placeholder="Ingresa el volumen de cada unidad..."
+                            autocomplete="off"
+                            [class.error]="!focusedEmail && formCotizar.controls.volumen.invalid && (formCotizar.controls.volumen.dirty || formCotizar.controls.volumen.touched)">
+                        <div class="error-formulario">
+                            <ng-container *ngFor="let validation of cotizarValidaciones.origen">
+                                <span class="error-message"
+                                    *ngIf="formCotizar.controls.volumen.hasError(validation.type) && (formCotizar.controls.volumen.dirty || formCotizar.controls.volumen.touched)">
+                                    {{ validation.message }}
+                                </span>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="peso">Peso <span>*</span></label>
+                        <input type="text" class="form-control" id="peso" aria-describedby="emailHelp"
+                            formControlName="peso" placeholder="Ingresa el volumen de cada unidad..." autocomplete="off"
+                            [class.error]="!focusedEmail && formCotizar.controls.peso.invalid && (formCotizar.controls.peso.dirty || formCotizar.controls.peso.touched)">
+                        <div class="error-formulario">
+                            <ng-container *ngFor="let validation of cotizarValidaciones.origen">
+                                <span class="error-message"
+                                    *ngIf="formCotizar.controls.peso.hasError(validation.type) && (formCotizar.controls.peso.dirty || formCotizar.controls.peso.touched)">
+                                    {{ validation.message }}
+                                </span>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad <span>*</span></label>
+                        <input type="text" class="form-control" id="cantidad" aria-describedby="emailHelp"
+                            formControlName="cantidad"
+                            placeholder="Ingresa la cantidad de unidades que necesitas enviar..." autocomplete="off"
+                            [class.error]="!focusedEmail && formCotizar.controls.cantidad.invalid && (formCotizar.controls.cantidad.dirty || formCotizar.controls.cantidad.touched)">
+                        <div class="error-formulario">
+                            <ng-container *ngFor="let validation of cotizarValidaciones.origen">
+                                <span class="error-message"
+                                    *ngIf="formCotizar.controls.cantidad.hasError(validation.type) && (formCotizar.controls.cantidad.dirty || formCotizar.controls.cantidad.touched)">
+                                    {{ validation.message }}
+                                </span>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comentrarios">Comentrarios</label>
+                        <textarea rows="10" type="text" class="form-control" id="comentrarios"
+                            aria-describedby="emailHelp" formControlName="comentrarios"
+                            placeholder="Ingresa cualquier otra información que consideres relevante...">
+                        </textarea>
+                    </div>
+                    <button type="submit" class="btn btn-cotizar" [disabled]="formCotizar.invalid">
+                        <span *ngIf="!loading">
+                            ENVIAR
+                        </span>
+                        <div class="container-enviando" *ngIf="loading">
+                            ENVIANDO
+                            <div class="spinner-border text-light" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </button>
+                </form>
+            </div>
+            <div *ngIf="loader" class="container alert alert-success" role="alert">
+                ¡Gracias por contactarnos! En breve nos pondremos en contacto contigo.
+            </div>
+        </div>
+    </div>
+</section>

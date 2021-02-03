@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,6 @@ export class AppComponent {
   constructor() {
     const self = this;
     window.onscroll = function () {
-      console.log('Vertical: ' + window.scrollY);
       self.scrollChange(window.scrollY);
     };
   }
