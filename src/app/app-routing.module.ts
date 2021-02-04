@@ -19,6 +19,18 @@ const routes: Routes = [
         (m) => m.ServiciosModule
       ),
   },
+  {
+    path: 'cotizar',
+    loadChildren: () =>
+      import('./modules/cotizar/cotizar.module').then((m) => m.CotizarModule),
+  },
+  {
+    path: 'contacto',
+    loadChildren: () =>
+      import('./modules/contacto/contacto.module').then(
+        (m) => m.ContactoModule
+      ),
+  },
 ];
 
 @NgModule({

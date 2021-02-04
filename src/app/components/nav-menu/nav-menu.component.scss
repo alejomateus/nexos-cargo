@@ -32,7 +32,31 @@
 }
 
 .nav-item {
-    cursor: pointer;
+    cursor  : pointer;
+    position: relative;
+
+    hr {
+        visibility: hidden;
+        position  : absolute;
+        width     : 100%;
+        background: var(--color-text-a-hover);
+        height    : 1px;
+        margin-top: 16px;
+    }
+
+    &.active {
+        hr {
+            visibility: visible;
+        }
+    }
+
+    &:hover {
+        hr {
+            visibility: visible;
+        }
+    }
+
+
 
     &:focus {
         outline: none;
