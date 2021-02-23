@@ -25,6 +25,11 @@ const routes: Routes = [
       import('./modules/cotizar/cotizar.module').then((m) => m.CotizarModule),
   },
   {
+    path: 'cotizar-bodega',
+    loadChildren: () =>
+      import('./modules/cotizacion/cotizacion.module').then((m) => m.CotizacionModule),
+  },
+  {
     path: 'contacto',
     loadChildren: () =>
       import('./modules/contacto/contacto.module').then(

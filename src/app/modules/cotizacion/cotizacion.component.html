@@ -1,0 +1,81 @@
+<section>
+  <div class="contaner-contacto">
+      <div class="container">
+          <div class="row">
+              <div class="col-12 col-md-8">
+                  <h2 class="left_title">Formulário de contacto</h2>
+                  <form novalidate [formGroup]="formContacto" class="login-form" (ngSubmit)="contacto()">
+                      <div class="form-group">
+                          <input type="text" class="form-control" autocomplete="off"
+                              [class.error]="formContacto.controls.nombre.invalid && (formContacto.controls.nombre.dirty || formContacto.controls.nombre.touched)"
+                              id="nombre" aria-describedby="emailHelp" formControlName="nombre" placeholder="Nombre">
+                          <div class="error-formulario">
+                              <ng-container *ngFor="let validation of cotizarValidaciones.nombre">
+                                  <span class="error-message"
+                                      *ngIf="formContacto.controls.nombre.hasError(validation.type) && (formContacto.controls.nombre.dirty || formContacto.controls.nombre.touched)">
+                                      {{ validation.message }}
+                                  </span>
+                              </ng-container>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <input (focus)="focusedEmail = true" (blur)="focusedEmail = false" type="email"
+                              class="form-control" autocomplete="off"
+                              [class.error]="!focusedEmail && formContacto.controls.email.invalid && (formContacto.controls.email.dirty || formContacto.controls.email.touched)"
+                              id="email" aria-describedby="emailHelp" formControlName="email" placeholder="Email">
+                          <div class="error-formulario">
+                              <ng-container *ngFor="let validation of cotizarValidaciones.email">
+                                  <span class="error-message"
+                                      *ngIf="!focusedEmail && formContacto.controls.email.hasError(validation.type) && (formContacto.controls.email.dirty || formContacto.controls.email.touched)">
+                                      {{ validation.message }}
+                                  </span>
+                              </ng-container>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" autocomplete="off"
+                              [class.error]="formContacto.controls.asunto.invalid && (formContacto.controls.asunto.dirty || formContacto.controls.asunto.touched)"
+                              id="asunto" aria-describedby="emailHelp" formControlName="asunto" placeholder="Asunto">
+                          <div class="error-formulario">
+                              <ng-container *ngFor="let validation of cotizarValidaciones.nombre">
+                                  <span class="error-message"
+                                      *ngIf="formContacto.controls.asunto.hasError(validation.type) && (formContacto.controls.asunto.dirty || formContacto.controls.asunto.touched)">
+                                      {{ validation.message }}
+                                  </span>
+                              </ng-container>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <textarea rows="5" type="text" class="form-control" id="mensaje"
+                              aria-describedby="emailHelp" formControlName="mensaje" placeholder="Mensaje">
+                          </textarea>
+                      </div>
+                      <button type="submit" class="btn btn-cotizar" [disabled]="formContacto.invalid">
+                          <span *ngIf="!loading">
+                              ENVIAR
+                          </span>
+                          <div class="container-enviando" *ngIf="loading">
+                              ENVIANDO
+                              <div class="spinner-border text-light" role="status">
+                                  <span class="sr-only">Loading...</span>
+                              </div>
+                          </div>
+                      </button>
+                  </form>
+              </div>
+              <div class="col-12 col-md-4 informacion">
+                  <h4 class="left_title">Bogotá – Sede principal</h4>
+                  <div class="icon_phone">+57 1 745-2882</div>
+                  <div class="icon_loc">Calle 23 No. 116 - 31, Oficina 301<br>Bogotá, Colombia</div>
+                  <h4 class="left_title">Cartagena</h4>
+                  <div class="icon_phone">+57 1 643-7865</div>
+                  <div class="icon_loc">Parque Industrial - Parquiamérica, Oficina 205<br>Zona Industrial de Mamonal
+                      Kilómetro 6<br>Cartagena, Colombia</div>
+                  <h4 class="left_title">Buenaventura</h4>
+                  <div class="icon_phone">+57 1 243-3945</div>
+                  <div class="icon_loc">Calle 7 No. 4A - 02<br>Buenaventura, Colombia</div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
