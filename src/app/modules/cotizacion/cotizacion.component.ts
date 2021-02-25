@@ -13,7 +13,7 @@ export class CotizacionComponent implements OnInit {
   subcategories: Array<any> = [];
   selectedItems: Array<any> = [];
   total: number = 0;
-  cellair: number = 0;
+  cellar: number = 0;
   lat = 4.6964333;
   lng = -74.0447252;
   putos = [
@@ -61,7 +61,7 @@ export class CotizacionComponent implements OnInit {
   async contacto(): Promise<any> {
     try {
       this.loading = true;
-      await this.sendEmailService.sendEmail("cotization", this.formContacto.value);
+      await this.sendEmailService.sendEmail("cellar", this.formContacto.value);
     } catch (error) {
 
     }
@@ -422,10 +422,10 @@ export class CotizacionComponent implements OnInit {
       value += item.value;
     });
     value = Math.ceil(value);
-    this.cellair = value;
+    this.cellar = value;
     this.total = value * environment.quote;
     this.formContacto.controls["bodega"].setValue(this.total);
-    this.formContacto.controls["espacio"].setValue(this.cellair);
+    this.formContacto.controls["espacio"].setValue(this.cellar);
   }
 
 }
