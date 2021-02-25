@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SendEmailService } from 'src/app/services/send-email.service';
 
 @Component({
   selector: 'app-cotizar',
@@ -31,18 +32,20 @@ export class CotizarComponent implements OnInit {
     ],
     origen: [{ type: 'required', message: 'Campo requerido' }],
   };
-  constructor() {}
+  constructor(private sendEmailService: SendEmailService) {}
 
   ngOnInit(): void {}
 
-  cotizar(): void {
-    if (!this.loading) {
-      console.log('cotizar enviar');
+  async cotizar(): Promise<any> {
+    try {
+      this.loading = true;
+      await this.sendEmailService.sendEmail("cotization", this.formCotizar.value);
+    } catch (error) {
+
     }
-    this.loading = true;
-    setTimeout(() => {
+    finally {
       this.loading = false;
-      this.loader = true;
-    }, 2000);
+    }
   }
+
 }

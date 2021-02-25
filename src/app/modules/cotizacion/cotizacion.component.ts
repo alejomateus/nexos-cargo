@@ -404,7 +404,7 @@ export class CotizacionComponent implements OnInit {
       value += item.value;
     });
     value = Math.ceil(value);
-    this.total = value* environment.quote;
+    this.total = value * environment.quote;
   }
 
 }

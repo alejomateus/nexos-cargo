@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SendEmailService } from 'src/app/services/send-email.service';
 import { estiloMapa } from './map-styles';
 
 @Component({
@@ -27,6 +28,7 @@ export class ContactoComponent implements OnInit {
         '^([a-zA-Z0-9-+_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$'
       ),
     ]),
+    phone: new FormControl('', [Validators.required]),
     asunto: new FormControl('', [Validators.required]),
     mensaje: new FormControl('', [Validators.required]),
   });
@@ -36,18 +38,23 @@ export class ContactoComponent implements OnInit {
       { type: 'pattern', message: 'Formato invalid' },
     ],
     nombre: [{ type: 'required', message: 'Campo requerido' }],
+    phone: [{ type: 'required', message: 'Campo requerido' }],
+    asunto: [{ type: 'required', message: 'Campo requerido' }],
+    mensaje: [{ type: 'required', message: 'Campo requerido' }],
   };
-  constructor() {}
+  constructor(private sendEmailService: SendEmailService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  contacto(): void {
-    if (!this.loading) {
-      console.log('contacto enviar');
+  async contacto(): Promise<any> {
+    try {
+      this.loading = true;
+      await this.sendEmailService.sendEmail("contact", this.formContacto.value);
+    } catch (error) {
+
     }
-    this.loading = true;
-    setTimeout(() => {
+    finally {
       this.loading = false;
-    }, 2000);
+    }
   }
 }

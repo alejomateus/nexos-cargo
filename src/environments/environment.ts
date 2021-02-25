@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  quote: 44000
+  quote: 44000,
+  urlFunction: "https://us-central1-ubox-88d86.cloudfunctions.net"
 };
 
 /*

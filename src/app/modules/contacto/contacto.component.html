@@ -46,6 +46,19 @@
                             </div>
                         </div>
                         <div class="form-group">
+                          <input type="text" class="form-control" autocomplete="off"
+                              [class.error]="formContacto.controls.phone.invalid && (formContacto.controls.phone.dirty || formContacto.controls.phone.touched)"
+                              id="phone" aria-describedby="emailHelp" formControlName="phone" placeholder="phone">
+                          <div class="error-formulario">
+                              <ng-container *ngFor="let validation of cotizarValidaciones.nombre">
+                                  <span class="error-message"
+                                      *ngIf="formContacto.controls.phone.hasError(validation.type) && (formContacto.controls.phone.dirty || formContacto.controls.phone.touched)">
+                                      {{ validation.message }}
+                                  </span>
+                              </ng-container>
+                          </div>
+                      </div>
+                        <div class="form-group">
                             <textarea rows="5" type="text" class="form-control" id="mensaje"
                                 aria-describedby="emailHelp" formControlName="mensaje" placeholder="Mensaje">
                             </textarea>
