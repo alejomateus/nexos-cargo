@@ -37,7 +37,7 @@ exports.sendMail = functions.https.onRequest((req, res) => {
     }
     let html = `<strong>${subject}</strong><br><br>`;
     Object.keys(req.body).forEach(param => {
-      html += `<strong>${param}:</strong> ${req.body[param]}<br><br>`;
+      html += `<h5><strong>${param}:</strong> ${req.body[param]}</h5><br><br>`;
     });
     const mailOptions = {
       from: SENDER_EMAIL,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SendEmailService } from 'src/app/services/send-email.service';
 import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-cotizacion',
@@ -11,7 +12,8 @@ export class CotizacionComponent implements OnInit {
   categories: Array<any> = [];
   subcategories: Array<any> = [];
   selectedItems: Array<any> = [];
-  total: number;
+  total: number = 0;
+  cellair: number = 0;
   lat = 4.6964333;
   lng = -74.0447252;
   putos = [
@@ -32,6 +34,8 @@ export class CotizacionComponent implements OnInit {
     phone: new FormControl('', [Validators.required]),
     asunto: new FormControl('', [Validators.required]),
     mensaje: new FormControl('', [Validators.required]),
+    bodega: new FormControl('', [Validators.required]),
+    espacio: new FormControl('', [Validators.required]),
   });
   cotizarValidaciones = {
     email: [
@@ -43,20 +47,27 @@ export class CotizacionComponent implements OnInit {
     asunto: [{ type: 'required', message: 'Campo requerido' }],
     mensaje: [{ type: 'required', message: 'Campo requerido' }],
   };
-  constructor() { }
+  formItems: FormGroup = new FormGroup({
+    category: new FormControl('', [Validators.required]),
+    item: new FormControl('', [Validators.required]),
+  });
+
+  constructor(private sendEmailService: SendEmailService) { }
 
   ngOnInit(): void {
     this.lists();
   }
 
-  contacto(): void {
-    if (!this.loading) {
-      console.log('contacto enviar');
+  async contacto(): Promise<any> {
+    try {
+      this.loading = true;
+      await this.sendEmailService.sendEmail("cotization", this.formContacto.value);
+    } catch (error) {
+
     }
-    this.loading = true;
-    setTimeout(() => {
+    finally {
       this.loading = false;
-    }, 2000);
+    }
   }
   lists(): void {
     this.categories = [
@@ -396,19 +407,25 @@ export class CotizacionComponent implements OnInit {
       },
     ]
   }
-  addtoCar(item: any) {
-    this.selectedItems.push(item);
+  addtoCar() {
+    console.log(this.formItems.value);
+    this.selectedItems.push(this.subcategories[this.formItems.value.item - 1]);
+    this.calculateTotal();
   }
-  deletefromCar(index) {
+  deletefromCar(index: number) {
     this.selectedItems.splice(index, 1);
+    this.calculateTotal();
   }
-  calcualteTotal() {
+  calculateTotal() {
     let value = 0;
     this.selectedItems.forEach(item => {
       value += item.value;
     });
     value = Math.ceil(value);
+    this.cellair = value;
     this.total = value * environment.quote;
+    this.formContacto.controls["bodega"].setValue(this.total);
+    this.formContacto.controls["espacio"].setValue(this.cellair);
   }
 
 }
