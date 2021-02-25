@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 const cors = require('cors')({ origin: true });
-admin.initializeApp();
+admin.initializeApp(functions.config().firebase);
 require('dotenv').config();
 const { SENDER_EMAIL, SENDER_PASSWORD } = process.env;
 /**
@@ -41,16 +41,15 @@ exports.sendMail = functions.https.onRequest((req, res) => {
     Object.keys(req.body).forEach(param => {
       html = `<strong>${param}:</strong> ${param}<br>`;
     });
-       const mailOptions = {
+    const mailOptions = {
       from: SENDER_EMAIL,
       to: SENDER_EMAIL,
       subject,
       html
     };
-    // returning result
     return transporter.sendMail(mailOptions, (erro, info) => {
       if (erro) {
-        return res.send(erro.toString() + SENDER_EMAIL + SENDER_PASSWORD);
+        return res.send(erro.toString());
       }
       return res.send('Sended');
     });
