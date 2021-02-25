@@ -2,14 +2,13 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 const cors = require('cors')({ origin: true });
-admin.initializeApp(functions.config().firebase);
+admin.initializeApp();
 require('dotenv').config();
 const { SENDER_EMAIL, SENDER_PASSWORD } = process.env;
 /**
 * Here we're using Gmail to send
 */
 let transporter = nodemailer.createTransport({
-  service: 'gmail',
   host: "smtp.gmail.com",
   port: 465,
   secure: true,
@@ -21,9 +20,8 @@ let transporter = nodemailer.createTransport({
 
 exports.sendMail = functions.https.onRequest((req, res) => {
   cors(req, res, () => {
-    if (request.method !== "POST") {
-      response.send(405, 'HTTP Method ' + request.method + ' not allowed');
-    }
+
+    // getting dest email by query string
     const type = req.query.type;
     let subject = "";
     switch (type) {
@@ -39,7 +37,7 @@ exports.sendMail = functions.https.onRequest((req, res) => {
     }
     let html = `<strong>${subject}</strong><br><br>`;
     Object.keys(req.body).forEach(param => {
-      html = `<strong>${param}:</strong> ${param}<br>`;
+      html += `<strong>${param}:</strong> ${req.body[param]}<br><br>`;
     });
     const mailOptions = {
       from: SENDER_EMAIL,
@@ -47,11 +45,12 @@ exports.sendMail = functions.https.onRequest((req, res) => {
       subject,
       html
     };
+
     return transporter.sendMail(mailOptions, (erro, info) => {
       if (erro) {
-        return res.send(erro.toString());
+        return res.send(erro.toString() + SENDER_EMAIL + SENDER_PASSWORD);
       }
-      return res.send('Sended');
+      return res.send('Sended' + JSON.stringify(req.body));
     });
   });
 });

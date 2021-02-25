@@ -29,6 +29,7 @@ export class CotizacionComponent implements OnInit {
         '^([a-zA-Z0-9-+_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$'
       ),
     ]),
+    phone: new FormControl('', [Validators.required]),
     asunto: new FormControl('', [Validators.required]),
     mensaje: new FormControl('', [Validators.required]),
   });
@@ -38,6 +39,9 @@ export class CotizacionComponent implements OnInit {
       { type: 'pattern', message: 'Formato invalid' },
     ],
     nombre: [{ type: 'required', message: 'Campo requerido' }],
+    phone: [{ type: 'required', message: 'Campo requerido' }],
+    asunto: [{ type: 'required', message: 'Campo requerido' }],
+    mensaje: [{ type: 'required', message: 'Campo requerido' }],
   };
   constructor() { }
 

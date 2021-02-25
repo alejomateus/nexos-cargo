@@ -12,8 +12,8 @@
     ],
     "rewrites": [
       {
-        "source": "/sendMail",
-        "destination": "sendMail"
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   }
