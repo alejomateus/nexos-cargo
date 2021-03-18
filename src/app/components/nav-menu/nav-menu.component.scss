@@ -1,3 +1,5 @@
+@import "media-content";
+
 .navbar {
     box-shadow: 0px 1px 2px rgb(0 0 0 / 15%);
     padding   : 0;
@@ -42,6 +44,16 @@
         background: var(--color-text-a-hover);
         height    : 1px;
         margin-top: 16px;
+
+        @include media-tablet {
+            margin-top: 16px;
+        }
+
+        @include media-pc {
+            margin-top: 16px;
+        }
+
+        margin-top: -6px;
     }
 
     &.active {

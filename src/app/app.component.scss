@@ -36,3 +36,22 @@
         margin-bottom: 275px;
     }
 }
+
+.whatsapp-link {
+    position: fixed;
+    bottom  : 20px;
+    right   : 20px;
+    width   : 55px;
+
+    @include media-tablet {
+        width: 62px;
+    }
+
+    @include media-pc {
+        width: 62px;
+    }
+
+    img {
+        width: 100%;
+    }
+}
