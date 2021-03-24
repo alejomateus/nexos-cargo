@@ -1,28 +1,28 @@
 @import "media-content";
 
 .demo-wrap {
-  position: relative;
+    position: relative;
 }
 
 .demo-wrap:before {
-  content: ' ';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.2;
-  background-image: url('/assets/imagenes/inicio/banner2.jpeg');
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: cover;
+    content            : ' ';
+    display            : block;
+    position           : absolute;
+    left               : 0;
+    top                : 0;
+    width              : 100%;
+    height             : 100%;
+    opacity            : 0.2;
+    background-image   : url('/assets/imagenes/inicio/banner2.jpeg');
+    background-repeat  : no-repeat;
+    background-position: 50% 0;
+    background-size    : cover;
 }
 
 .inicio-banner {
     padding      : 35px 0 30px;
     margin-bottom: 50px;
-    position: relative;
+    position     : relative;
 }
 
 .section_big_title {
@@ -30,10 +30,12 @@
     margin        : 6px 0 42px;
     padding-bottom: 8px;
 }
+
 .section {
-  background: url(/assets/imagenes/inicio/banner2.jpeg) 100% 65px / cover no-repeat fixed ;
+    background: url(/assets/imagenes/inicio/banner2.jpeg) 100% 65px / cover no-repeat fixed;
 
 }
+
 .banner {
     &-title {
         position           : relative;

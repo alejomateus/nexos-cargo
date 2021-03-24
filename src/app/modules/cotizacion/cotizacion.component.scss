@@ -1,41 +1,45 @@
 @import "media-content";
 
+.demo-wrap {
+  min-height: 58vh;
+}
+
 .left_title {
-  color: var(--color-text);
-  font-weight: 400;
+  color         : var(--color-text);
+  font-weight   : 400;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size     : 15px;
   letter-spacing: 1px;
-  line-height: 21px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  font-family: OpenSansSemiBold, sans-serif;
+  line-height   : 21px;
+  margin-top    : 30px;
+  margin-bottom : 20px;
+  font-family   : OpenSansSemiBold, sans-serif;
 }
 
 .form-group {
-  padding: 10px 0 23px 0;
-  position: relative;
+  padding      : 10px 0 23px 0;
+  position     : relative;
   margin-bottom: 0;
 
   label {
-    color: var(--color-text-p);
+    color      : var(--color-text-p);
     font-weight: 700;
-    font-size: 18px;
-    float: none;
+    font-size  : 18px;
+    float      : none;
     line-height: 1.3;
-    margin: 0 0 4px 0;
-    padding: 0;
+    margin     : 0 0 4px 0;
+    padding    : 0;
 
     span {
       font-family: OpenSansLight, sans-serif;
-      color: var(--color-red);
+      color      : var(--color-red);
     }
   }
 
   .form-control {
     &:focus {
       border-color: var(--color-text-two);
-      box-shadow: none;
+      box-shadow  : none;
     }
 
     &.error {
@@ -45,27 +49,27 @@
 
   .error-formulario {
     font-family: OpenSansSemiBold, "sans-serif";
-    font-size: 12px;
-    position: absolute;
-    bottom: 0;
-    color: var(--color-error);
+    font-size  : 12px;
+    position   : absolute;
+    bottom     : 0;
+    color      : var(--color-error);
   }
 }
 
 .btn-cotizar {
   background-color: var(--color-text-a-hover);
-  border: 1px solid var(--color-text-a-hover);
-  line-height: 46px;
-  border-radius: 5px;
-  color: var(--color-white);
-  border-bottom: none;
-  padding: 2px 16px 2px;
-  font-family: OpenSansSemiBold, sans-serif;
+  border          : 1px solid var(--color-text-a-hover);
+  line-height     : 46px;
+  border-radius   : 5px;
+  color           : var(--color-white);
+  border-bottom   : none;
+  padding         : 2px 16px 2px;
+  font-family     : OpenSansSemiBold, sans-serif;
 
   &:disabled {
     background-color: var(--color-text-afeter);
-    border: 1px solid var(--color-disabled);
-    color: var(--color-text-two);
+    border          : 1px solid var(--color-disabled);
+    color           : var(--color-text-two);
   }
 
   &:focus {
@@ -74,7 +78,7 @@
 }
 
 .contaner-contacto {
-  padding-top: 67px;
+  padding-top   : 67px;
   padding-bottom: 50px;
 
   @include media-tablet {
@@ -87,18 +91,18 @@
 }
 
 .icon_phone {
-  font-size: 13px;
-  line-height: 24px;
-  background: url("/assets/imagenes/info-header/phone.png") left 4px no-repeat;
-  padding: 0 0 0 30px;
+  font-size    : 13px;
+  line-height  : 24px;
+  background   : url("/assets/imagenes/info-header/phone.png") left 4px no-repeat;
+  padding      : 0 0 0 30px;
   margin-bottom: 6px;
 }
 
 .icon_loc {
-  font-size: 13px;
-  line-height: 24px;
-  background: url("/assets/imagenes/footer/loc.png") left 3px no-repeat;
-  padding: 0 0 0 30px;
+  font-size    : 13px;
+  line-height  : 24px;
+  background   : url("/assets/imagenes/footer/loc.png") left 3px no-repeat;
+  padding      : 0 0 0 30px;
   margin-bottom: 6px;
 }
 
@@ -109,8 +113,8 @@
 
 .text-light {
   margin-left: 10px;
-  height: 30px;
-  width: 30px;
+  height     : 30px;
+  width      : 30px;
 }
 
 button {
@@ -118,25 +122,31 @@ button {
 }
 
 .container-enviando {
-  display: flex;
+  display        : flex;
   justify-content: center;
-  align-items: center;
+  align-items    : center;
 }
+
 .img-close {
-  width: 20px;
-  margin-top: auto;
+  width        : 20px;
+  margin-top   : auto;
   margin-bottom: auto;
 }
+
 .items {
   width: 100%;
 }
+
 .listado {
-  padding: 20px;
+  padding         : 20px;
+  background-color: black;
 }
-.total{
+
+.total {
   text-align: center;
 }
-.container-button{
+
+.container-button {
   text-align: center;
-  width: 100%;
+  width     : 100%;
 }
