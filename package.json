@@ -52,7 +52,6 @@
     "typescript": "~3.8.3"
   },
   "pre-commit": [
-    "build",
-    "deploy"
+
   ]
 }
