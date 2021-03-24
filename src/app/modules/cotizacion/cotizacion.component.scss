@@ -8,7 +8,19 @@
   color         : var(--color-text);
   font-weight   : 400;
   text-transform: uppercase;
-  font-size     : 15px;
+  font-size     : 19px;
+  letter-spacing: 1px;
+  line-height   : 21px;
+  margin-top    : 30px;
+  margin-bottom : 20px;
+  font-family   : OpenSansSemiBold, sans-serif;
+}
+
+.left_title2 {
+  color         : var(--color-text);
+  font-weight   : 400;
+  text-transform: uppercase;
+  font-size     : 16px;
   letter-spacing: 1px;
   line-height   : 21px;
   margin-top    : 30px;
