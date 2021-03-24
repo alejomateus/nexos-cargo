@@ -24,12 +24,12 @@
               </select>
             </div>
             <div class="container-button">
-              <button type="submit" class="btn btn-primary" [disabled]="formItems.invalid">Agregar</button>
+              <button type="submit" class="btn btn-cotizar" [disabled]="formItems.invalid">Agregar</button>
             </div>
             <div *ngIf="selectedItems.length>0">
               <h4>Listado</h4>
-              <div class="listado bg-info">
-                <div *ngFor="let item of selectedItems, let i = index" class="alert alert-primary items" role="alert">
+              <div class="listado">
+                <div *ngFor="let item of selectedItems, let i = index" class="alert alert-light items" role="alert">
                   {{item.label}}
                   <img src="assets/imagenes/close.png" class="img-close" (click)="deletefromCar(i)">
                 </div>
