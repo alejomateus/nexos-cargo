@@ -13,7 +13,7 @@ const routes: Routes = [
       import('./modules/inicio/inicio.module').then((m) => m.InicioModule),
   },
   {
-    path: 'servicios',
+    path: 'ventajas',
     loadChildren: () =>
       import('./modules/servicios/servicios.module').then(
         (m) => m.ServiciosModule
